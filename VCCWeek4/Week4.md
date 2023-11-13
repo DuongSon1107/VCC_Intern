@@ -91,7 +91,7 @@
 
 #### 4.1.2.2 Sơ đồ thực thể liên kết 
 
-![image-20231108143518345](/home/son/snap/typora/86/.config/Typora/typora-user-images/image-20231108143518345.png)
+![image-20231108143518345](/VCCWeek4/Anhweek4/1.png)
 
 
 
@@ -99,7 +99,7 @@
 
 #### 4.1.2.3Phân tích lược đồ quan hệ 
 
-![image-20231108143619966](/home/son/snap/typora/86/.config/Typora/typora-user-images/image-20231108143619966.png)
+![image-20231108143619966](/VCCWeek4/Anhweek4/2.png)
 
 
 
@@ -179,27 +179,26 @@
 
 - **Publisher** 
 
-![image-20231108145310569](/home/son/snap/typora/86/.config/Typora/typora-user-images/image-20231108145310569.png)
+![image-20231108145310569](/VCCWeek4/Anhweek4/3.png)
 
 - **Books**
 
-  ![image-20231108145447290](/home/son/snap/typora/86/.config/Typora/typora-user-images/image-20231108145447290.png)
+  ![image-20231108145447290](/VCCWeek4/Anhweek4/4.png)
 
 - **Pub_Book**
 
-  ![image-20231108145542792](/home/son/snap/typora/86/.config/Typora/typora-user-images/image-20231108145542792.png)
+  ![image-20231108145542792](/VCCWeek4/Anhweek4/5.png)
 
 - **Member**
 
-  ![image-20231108150023836](/home/son/snap/typora/86/.config/Typora/typora-user-images/image-20231108150023836.png)
-
+  ![image-20231108150023836](/VCCWeek4/Anhweek4/6.png)
 - **Invoice**
 
-  ![image-20231108150124165](/home/son/snap/typora/86/.config/Typora/typora-user-images/image-20231108150124165.png)
+  ![image-20231108150124165](/VCCWeek4/Anhweek4/7.png)
 
 - **Invoice_Detail** 
 
-  ![image-20231108150339641](/home/son/snap/typora/86/.config/Typora/typora-user-images/image-20231108150339641.png)
+  ![image-20231108150339641](/VCCWeek4/Anhweek4/8.png)
 
 ### 4.2. Tối ưu hóa truy vấn
 
@@ -217,7 +216,7 @@
 
   MySQL có một câu lệnh **EXPLAIN** để có thể phân tích câu truy vấn của mình, khi đặt **EXPLAIN** vào trước câu lệnh SQL, MySQL sẽ hiển thị thông tin từ trình tối ưu hóa về kế hoạch thực hiện dự định, hay xem kết quả :
 
-  ![image-20231110163120001](/home/son/snap/typora/86/.config/Typora/typora-user-images/image-20231110163120001.png)
+  ![image-20231110163120001](/VCCWeek4/Anhweek4/9.png)
 
   Đầu tiên,MySQL sẽ tiến hành quét toàn bộ bảng vì cột key là 'NULL'.Chúng ta dễ thấy được mysql cần duyệt qua 13 dòng trong cơ sở dữ liệu để thực thi câu truy vấn này.
 
@@ -229,7 +228,7 @@
 
   Sau đó thực hiện lại câu truy vấn cũ và vẫn thêm câu lệnh **EXPLAIN** đằng trước để được phân thích và thấy sự khác biệt :
 
-  ![image-20231110163624195](/home/son/snap/typora/86/.config/Typora/typora-user-images/image-20231110163624195.png)
+  ![image-20231110163624195](/VCCWeek4/Anhweek4/10.png)
 
   Từ output trên, rõ ràng máy chủ MySQL sẽ sử dụng **Index (Quantity)** để tìm kiếm. Ta có thể thấy rõ số lượng rows cần quét chỉ là 6. Indexes có thể rất có ích khi bạn truy vấn một tập dữ liệu lớn (ví dụ: một bảng có hàng triệu rows).Sử dụng chỉ mục có thể cải thiện hiệu suất của truy vấn bằng cách giảm số lượng bản ghi cần được quét. 
 
@@ -239,8 +238,7 @@
 
   Thay vì sử dụng SELECT*  hay chỉ lấy ra các hàng cần thiết cho mục đích của mình.
 
-  ![image-20231110172250072](/home/son/snap/typora/86/.config/Typora/typora-user-images/image-20231110172250072.png)
-
+  ![image-20231110172250072](/VCCWeek4/Anhweek4/11.png)
   Việc này với một database nhỏ nhắn thì không thấy chậm lắm nhưng với một **database lớn**, một records có **nhiều trường phức tạp** thì việc lấy ra hết các hàng sẽ **làm câu truy vấn chạy chậm một cách đáng kể** và việc này khá là tai hại, vì thế chúng ta nên chỉ nên lấy  ra những **dữ liệu mà mình cần**.
 
 - **SELECT DISTINCT**
@@ -276,7 +274,7 @@
 
   Trong SQL, câu lệnh LIMIT thường được sử dụng để hạn chế số hàng được trả về bởi một truy vấn. Ví dụ , truy vấn trích dẫn dữ liệu từ bảng và giới hạn bộ kết quả chỉ chứa 10 hàng đầu tiên bằng cách sử dụng mệnh đề `LIMIT 10`. Điều này có thể rất hữu ích để cải thiện hiệu suất của truy vấn khi bạn chỉ cần một phần nhỏ của dữ liệu.
 
-  ![image-20231113154457090](/home/son/snap/typora/86/.config/Typora/typora-user-images/image-20231113154457090.png)
+  ![image-20231113154457090](/VCCWeek4/Anhweek4/12.png)
 
   
 
@@ -292,7 +290,7 @@
 
 - Dữ liệu trong một RDBMS được lưu trữ trong các đối tượng cơ sở dữ liệu được gọi là **các bảng (table)** , chứa **cột (thực thể)** và **hàng (bản ghi)** . Bảng này về cơ bản là một bộ sưu tập các mục nhập dữ liệu có liên quan và nó bao gồm nhiều cột và hàng. Bảng là hình thức lưu trữ dữ liệu phổ biến và đơn giản nhất trong một cơ sở dữ liệu quan hệ. 
 
-  ![image-20231108145310569](/home/son/snap/typora/86/.config/Typora/typora-user-images/image-20231108145310569.png)
+  ![image-20231108145310569](/VCCWeek4/Anhweek4/13.png)
 
 - **Ràng buộc (Constraint)** là các quy tắc được áp dụng trên các cột dữ  liệu của một bảng. Chúng được sử dụng để kiểm tra tính hợp lệ của dữ  liệu đầu vào, đảm bảo tính chính xác, độ tin cậy và tính toàn vẹn của dữ liệu trong database.
 
@@ -318,7 +316,8 @@
 
 - Trong khi **relational database** được tối ưu cho việc  lưu trữ dữ liệu dưới dạng các dòng - tức dữ liệu của cùng một dòng sẽ  được lưu trữ gần nhau trong ổ cứng, việc này giúp tối ưu hoá cho các ứng dụng liên quan nhiều tới giao dịch. Thì **Columnar Database** lại lưu dữ liệu theo từng cột, việc này làm tăng quá trình lưu trữ và lấy  dữ liệu của từng cột trong database đặc biệt trong các ứng dụng nặng về  phân tích.
 
-  ![image-20231108173700374](/home/son/snap/typora/86/.config/Typora/typora-user-images/image-20231108173700374.png)
+  ![image](https://github.com/DuongSon1107/VCC_Intern/assets/98730673/ee39f311-7e51-41a1-bd90-8a91d655ea27)
+
 
 - Khi ta thực hiện một câu lệnh truy vấn có điều kiện WHERE trên 1 cột nào đó thì với **relational database**, nó phải tải lên tất cả các cột trong một dòng rồi tìm tới cột cần xác định điều kiện. Trong khi đó với **Columnar Database** thì DBMS chỉ cần tải lên đúng dữ liệu của 1 cột đó và thực hiện việc lọc. Từ đó tối ưu hơn do giảm thiểu được đáng kể lượng dữ liệu đi từ ổ cứng đến CPU, từ đó giảm được thời gian xử lý khi thực thi truy vấn.
 
