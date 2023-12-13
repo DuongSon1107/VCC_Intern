@@ -289,15 +289,15 @@ Werkzeug==2.0.2
   sudo docker build -t flask-rest-api .
   ```
 
-  ![image-20231213161113861](/home/son/snap/typora/86/.config/Typora/typora-user-images/image-20231213161113861.png)
+![image](https://github.com/DuongSon1107/VCC_Intern/assets/98730673/06028036-28d6-48d2-81e4-2827a3ad2f44)
 
 - Sau khi xây dựng xong image, chạy container bằng lệnh
 
   ```
   sudo docker run -p 8080:5000 flask-rest-api
   ```
+![image](https://github.com/DuongSon1107/VCC_Intern/assets/98730673/368ec1c9-8be8-4d2a-8260-e81c87b07b51)
 
-  ![image-20231213161203632](/home/son/snap/typora/86/.config/Typora/typora-user-images/image-20231213161203632.png)
 
 - Khi đó ta mở trình duyệt và truy cập vào địa chỉ ip trên và thêm /ping vào cuối, sau đó ta sẽ thấy trình duyệt phản hồi lại pong và xuất hiện dòng log trên terminal ghi lại mỗi lần có yêu cầu GET đến /ping
 
